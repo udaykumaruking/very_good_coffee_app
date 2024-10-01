@@ -6,9 +6,10 @@ import 'package:very_good_coffee_app/constants/app_constants.dart';
 import '../providers/coffee_image_provider.dart';
 import 'favorites_page.dart';
 import 'home_page.dart';
-import 'saved_images_screen.dart';
 
 class ImageLoaderScreen extends StatefulWidget {
+  const ImageLoaderScreen({super.key});
+
   @override
   State<ImageLoaderScreen> createState() => _ImageLoaderScreenState();
 }
@@ -26,7 +27,7 @@ class _ImageLoaderScreenState extends State<ImageLoaderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var imageProvider = Provider.of<CoffeeImageProvider>(context);
+    Provider.of<CoffeeImageProvider>(context);
 
     return SafeArea(
       child: Scaffold(

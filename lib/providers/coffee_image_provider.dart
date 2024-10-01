@@ -5,8 +5,8 @@ import '../repositories/coffee_image_repository.dart';
 import '../services/coffee_image_service.dart';
 
 class CoffeeImageProvider with ChangeNotifier {
-  CoffeeImageService _service = CoffeeImageService();
-  CoffeeImageRepository _repository = CoffeeImageRepository();
+  final CoffeeImageService _service = CoffeeImageService();
+  final CoffeeImageRepository _repository = CoffeeImageRepository();
 
   File? _currentImage;
   bool _isLoading = false;
