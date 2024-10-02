@@ -1,8 +1,7 @@
-// import 'package:abc/providers/coffee_provider.dart';
+// lib/screens/home_page.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/app_constants.dart';
 import '../providers/coffee_image_provider.dart';
 
@@ -17,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var imageProvider = Provider.of<CoffeeImageProvider>(context);
-    // final coffeeProvider = Provider.of<CoffeeProvider>(context);
+
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 50, 20, 0),
       child: Column(
@@ -54,17 +53,18 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadiusDirectional.circular(40),
-                color: textWhite),
+              borderRadius: BorderRadius.circular(40),
+              color: textWhite,
+            ),
             child: Column(
               children: [
                 Container(
                   height: 400,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: const BorderRadiusDirectional.only(
-                      topEnd: Radius.circular(40),
-                      topStart: Radius.circular(40),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40),
                     ),
                     color: textBlack,
                   ),
@@ -80,9 +80,9 @@ class _HomePageState extends State<HomePage> {
                         )
                       : imageProvider.currentImage != null
                           ? ClipRRect(
-                              borderRadius: BorderRadiusDirectional.only(
-                                topEnd: Radius.circular(40),
-                                topStart: Radius.circular(40),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(40),
+                                topRight: Radius.circular(40),
                               ),
                               child: Image.file(
                                 imageProvider.currentImage!,
@@ -90,81 +90,19 @@ class _HomePageState extends State<HomePage> {
                                 alignment: Alignment.center,
                               ),
                             )
-                          : Text(
-                              'No image loaded',
-                              style: GoogleFonts.jost(
-                                textStyle: const TextStyle(fontSize: 40),
-                                color: textWhite,
+                          : Center(
+                              child: Text(
+                                'No image loaded',
+                                style: GoogleFonts.jost(
+                                  textStyle: const TextStyle(fontSize: 40),
+                                  color: textWhite,
+                                ),
                               ),
                             ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                //     ElevatedButton.icon(
-                //       onPressed: () {
-                //         imageProvider.loadNewImage();
-                //       },
-                //       label: Text(
-                //         'Load Image',
-                //         style: GoogleFonts.poppins(
-                //           fontSize: 16,
-                //           color: textBrown,
-                //           fontWeight: FontWeight.w400,
-                //           letterSpacing: 1,
-                //         ),
-                //       ),
-                //       icon: const Icon(
-                //         Icons.refresh_rounded,
-                //       ),
-                //       style: ButtonStyle(
-                //         padding: const WidgetStatePropertyAll(
-                //           EdgeInsets.fromLTRB(15, 8, 15, 8),
-                //         ),
-                //         foregroundColor: WidgetStatePropertyAll(textBrown),
-                //         backgroundColor: WidgetStatePropertyAll(textWhite),
-                //         shadowColor: WidgetStatePropertyAll(textBrown),
-                //         side: WidgetStateProperty.all(
-                //           BorderSide(
-                //               color: textBrown,
-                //               width: 2.0,
-                //               style: BorderStyle.solid),
-                //         ),
-                //       ),
-                //     ),
-                //     ElevatedButton.icon(
-                //       onPressed: () {
-                //         imageProvider.saveImage();
-                //         ScaffoldMessenger.of(context).showSnackBar(
-                //           SnackBar(content: Text('Image Saved')),
-                //         );
-                //       },
-                //       label: Text(
-                //         'Save Image',
-                //         style: GoogleFonts.poppins(
-                //           fontSize: 16,
-                //           color: textWhite,
-                //           fontWeight: FontWeight.w400,
-                //           letterSpacing: 1,
-                //         ),
-                //       ),
-                //       icon: const Icon(
-                //         Icons.save_alt_rounded,
-                //       ),
-                //       style: ButtonStyle(
-                //         padding: const WidgetStatePropertyAll(
-                //           EdgeInsets.fromLTRB(15, 8, 15, 8),
-                //         ),
-                //         foregroundColor: WidgetStatePropertyAll(textWhite),
-                //         backgroundColor: WidgetStatePropertyAll(textBrown),
-                //         shadowColor: WidgetStatePropertyAll(textBrown),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -221,11 +159,11 @@ Widget buildActionButton({
     ),
     icon: Icon(icon),
     style: ButtonStyle(
-      padding: const WidgetStatePropertyAll(
-        EdgeInsets.fromLTRB(15, 8, 15, 8),
+      padding: WidgetStateProperty.all(
+        const EdgeInsets.fromLTRB(15, 8, 15, 8),
       ),
-      foregroundColor: WidgetStatePropertyAll(textColor),
-      backgroundColor: WidgetStatePropertyAll(buttonColor),
+      backgroundColor: WidgetStateProperty.all(buttonColor),
+      foregroundColor: WidgetStateProperty.all(textColor),
     ),
   );
 }

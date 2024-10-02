@@ -3,10 +3,11 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:intl/intl.dart';
+
 import '../constants/app_constants.dart';
 
 class CoffeeImageService {
-  Future<File> fetchCoffeeImage() async {
+  Future<File?> fetchCoffeeImage() async {
     try {
       final response = await http.get(Uri.parse(AppConstants.coffeeApiUrl));
       if (response.statusCode == 200) {
@@ -18,10 +19,13 @@ class CoffeeImageService {
         await file.writeAsBytes(response.bodyBytes);
         return file;
       } else {
-        throw HttpException('Failed to load image: ${response.statusCode}');
+        throw Exception('Failed to load image');
       }
     } catch (e) {
-      throw Exception('An error occurred while fetching the coffee image: $e');
+      // Log the error or handle it accordingly
+      // ignore: avoid_print
+      print('Error fetching image: $e');
+      return null; // Return null when fetching fails
     }
   }
 }
