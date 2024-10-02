@@ -68,23 +68,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     color: textBlack,
                   ),
-                  // child: coffeeProvider.isLoading
-                  //     ? null
-                  //     : coffeeProvider.error != null
-                  //         ? Text(
-                  //             'Error: ${coffeeProvider.error}',
-                  //             textAlign: TextAlign.center,
-                  //           )
-                  //         : (coffeeProvider.coffeeImageUrl != null)
-                  //             ? Image.network(
-                  //                 coffeeProvider.coffeeImageUrl!,
-                  //                 fit: BoxFit.cover,
-                  //                 alignment: Alignment.center,
-                  //               )
-                  //             : Text(
-                  //                 'Errorrrr: ${coffeeProvider.error}',
-                  //                 textAlign: TextAlign.center,
-                  //               ),
                   child: imageProvider.isLoading
                       ? Center(
                           child: Text(

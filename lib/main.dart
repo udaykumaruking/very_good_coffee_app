@@ -1,19 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'image_loader_screen.dart';
-
-// void main() => runApp(MyApp());
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Very Good Coffee',
-//       theme: ThemeData(primarySwatch: Colors.brown),
-//       home: ImageLoaderScreen(),
-//     );
-//   }
-// }
-
 // lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,8 +19,22 @@ class MyApp extends StatelessWidget {
         title: 'Very Good Coffee',
         theme: ThemeData(
           primarySwatch: Colors.brown,
+          scaffoldBackgroundColor: Colors.grey[200],
+          textTheme: TextTheme(
+            displayLarge: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            bodyLarge: TextStyle(fontSize: 16, color: Colors.brown),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              textStyle: TextStyle(fontSize: 16),
+            ),
+          ),
         ),
-        home: ImageLoaderScreen(),
+        home: const ImageLoaderScreen(),
       ),
     );
   }

@@ -21,6 +21,7 @@ class CoffeeImageProvider with ChangeNotifier {
     try {
       _currentImage = await _service.fetchCoffeeImage();
     } catch (e) {
+      // ignore: avoid_print
       print('Error loading image: $e');
     } finally {
       _isLoading = false;
