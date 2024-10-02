@@ -118,135 +118,92 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 30,
                 ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     ElevatedButton.icon(
+                //       onPressed: () {
+                //         imageProvider.loadNewImage();
+                //       },
+                //       label: Text(
+                //         'Load Image',
+                //         style: GoogleFonts.poppins(
+                //           fontSize: 16,
+                //           color: textBrown,
+                //           fontWeight: FontWeight.w400,
+                //           letterSpacing: 1,
+                //         ),
+                //       ),
+                //       icon: const Icon(
+                //         Icons.refresh_rounded,
+                //       ),
+                //       style: ButtonStyle(
+                //         padding: const WidgetStatePropertyAll(
+                //           EdgeInsets.fromLTRB(15, 8, 15, 8),
+                //         ),
+                //         foregroundColor: WidgetStatePropertyAll(textBrown),
+                //         backgroundColor: WidgetStatePropertyAll(textWhite),
+                //         shadowColor: WidgetStatePropertyAll(textBrown),
+                //         side: WidgetStateProperty.all(
+                //           BorderSide(
+                //               color: textBrown,
+                //               width: 2.0,
+                //               style: BorderStyle.solid),
+                //         ),
+                //       ),
+                //     ),
+                //     ElevatedButton.icon(
+                //       onPressed: () {
+                //         imageProvider.saveImage();
+                //         ScaffoldMessenger.of(context).showSnackBar(
+                //           SnackBar(content: Text('Image Saved')),
+                //         );
+                //       },
+                //       label: Text(
+                //         'Save Image',
+                //         style: GoogleFonts.poppins(
+                //           fontSize: 16,
+                //           color: textWhite,
+                //           fontWeight: FontWeight.w400,
+                //           letterSpacing: 1,
+                //         ),
+                //       ),
+                //       icon: const Icon(
+                //         Icons.save_alt_rounded,
+                //       ),
+                //       style: ButtonStyle(
+                //         padding: const WidgetStatePropertyAll(
+                //           EdgeInsets.fromLTRB(15, 8, 15, 8),
+                //         ),
+                //         foregroundColor: WidgetStatePropertyAll(textWhite),
+                //         backgroundColor: WidgetStatePropertyAll(textBrown),
+                //         shadowColor: WidgetStatePropertyAll(textBrown),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        imageProvider.loadNewImage();
-                      },
-                      label: Text(
-                        'Load Image',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: textBrown,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                        ),
-                      ),
-                      icon: const Icon(
-                        Icons.refresh_rounded,
-                      ),
-                      style: ButtonStyle(
-                        padding: const WidgetStatePropertyAll(
-                          EdgeInsets.fromLTRB(15, 8, 15, 8),
-                        ),
-                        foregroundColor: WidgetStatePropertyAll(textBrown),
-                        backgroundColor: WidgetStatePropertyAll(textWhite),
-                        shadowColor: WidgetStatePropertyAll(textBrown),
-                        side: WidgetStateProperty.all(
-                          BorderSide(
-                              color: textBrown,
-                              width: 2.0,
-                              style: BorderStyle.solid),
-                        ),
-                      ),
+                    buildActionButton(
+                      label: 'Load Image',
+                      icon: Icons.refresh_rounded,
+                      onPressed: () => imageProvider.loadNewImage(),
+                      buttonColor: textWhite,
+                      textColor: textBrown,
                     ),
-                    ElevatedButton.icon(
+                    buildActionButton(
+                      label: 'Save Image',
+                      icon: Icons.save_alt_rounded,
                       onPressed: () {
                         imageProvider.saveImage();
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Image Saved')),
+                          const SnackBar(content: Text('Image Saved')),
                         );
                       },
-                      label: Text(
-                        'Save Image',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: textWhite,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                        ),
-                      ),
-                      icon: const Icon(
-                        Icons.save_alt_rounded,
-                      ),
-                      style: ButtonStyle(
-                        padding: const WidgetStatePropertyAll(
-                          EdgeInsets.fromLTRB(15, 8, 15, 8),
-                        ),
-                        foregroundColor: WidgetStatePropertyAll(textWhite),
-                        backgroundColor: WidgetStatePropertyAll(textBrown),
-                        shadowColor: WidgetStatePropertyAll(textBrown),
-                      ),
+                      buttonColor: textBrown,
+                      textColor: textWhite,
                     ),
-                    // OutlinedButton.icon(
-                    //   onPressed: () {},
-                    //   label: Text(
-                    //     'Load Image',
-                    //     style: GoogleFonts.poppins(
-                    //       fontSize: 14,
-                    //       color: textBrown,
-                    //       fontWeight: FontWeight.w400,
-                    //       letterSpacing: 1,
-                    //     ),
-                    //   ),
-                    //   icon: const Icon(
-                    //     Icons.refresh_rounded,
-                    //   ),
-                    //   style: ButtonStyle(
-                    //     padding: const WidgetStatePropertyAll(
-                    //       EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    //     ),
-                    //     foregroundColor: WidgetStatePropertyAll(textBrown),
-                    //     backgroundColor: WidgetStatePropertyAll(textWhite),
-                    //     shadowColor: WidgetStatePropertyAll(textBrown),
-                    //     side: WidgetStateProperty.all(
-                    //       BorderSide(
-                    //           color: textBrown,
-                    //           width: 1.0,
-                    //           style: BorderStyle.solid),
-                    //     ),
-                    //   ),
-                    // ),
-                    // Container(
-                    //   padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    //   decoration: BoxDecoration(
-                    //     borderRadius: BorderRadiusDirectional.circular(100),
-                    //     border: Border.all(
-                    //       color: textBrown,
-                    //       width: 2,
-                    //     ),
-                    //   ),
-                    //   child: Text(
-                    //     'Load Image',
-                    //     style: GoogleFonts.poppins(
-                    //       fontSize: 14,
-                    //       color: textBrown,
-                    //       fontWeight: FontWeight.w400,
-                    //       letterSpacing: 1,
-                    //     ),
-                    //   ),
-                    // ),
-                    // Container(
-                    //   padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    //   decoration: BoxDecoration(
-                    //       borderRadius: BorderRadiusDirectional.circular(100),
-                    //       border: Border.all(
-                    //         color: textBrown,
-                    //         width: 2,
-                    //       ),
-                    //       color: textBrown),
-                    //   child: Text(
-                    //     'Save Image',
-                    //     style: GoogleFonts.poppins(
-                    //       fontSize: 14,
-                    //       color: textWhite,
-                    //       fontWeight: FontWeight.w400,
-                    //       letterSpacing: 1,
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
                 const SizedBox(
@@ -259,4 +216,33 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+Widget buildActionButton({
+  required String label,
+  required IconData icon,
+  required VoidCallback onPressed,
+  required Color buttonColor,
+  required Color textColor,
+}) {
+  return ElevatedButton.icon(
+    onPressed: onPressed,
+    label: Text(
+      label,
+      style: GoogleFonts.poppins(
+        fontSize: 16,
+        color: textColor,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1,
+      ),
+    ),
+    icon: Icon(icon),
+    style: ButtonStyle(
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.fromLTRB(15, 8, 15, 8),
+      ),
+      foregroundColor: WidgetStatePropertyAll(textColor),
+      backgroundColor: WidgetStatePropertyAll(buttonColor),
+    ),
+  );
 }
